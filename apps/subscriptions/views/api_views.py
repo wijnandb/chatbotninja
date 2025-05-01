@@ -5,7 +5,6 @@ from drf_spectacular.utils import extend_schema, inline_serializer
 from rest_framework.response import Response
 from rest_framework.views import APIView
 
-from apps.api.permissions import IsAuthenticatedOrHasUserAPIKey
 from apps.teams.decorators import team_admin_required
 
 from ..exceptions import SubscriptionConfigError
@@ -15,8 +14,6 @@ from ..metadata import ProductWithMetadata, get_active_products_with_metadata
 
 @extend_schema(tags=["subscriptions"], exclude=True)
 class ProductWithMetadataAPI(APIView):
-    permission_classes = (IsAuthenticatedOrHasUserAPIKey,)
-
     @extend_schema(operation_id="active_products_list", responses={200: ProductWithMetadata.serializer()})
     def get(self, request, *args, **kw):
         products_with_metadata = get_active_products_with_metadata()

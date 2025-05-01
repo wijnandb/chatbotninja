@@ -8,8 +8,8 @@ venv
 db.sqlite3
 .sass-cache/
 celerybeat-schedule
-chatbotninja/localsettings.py
-chatbotninja/local.py
+botminds/localsettings.py
+botminds/local.py
 static_root/
 node_modules/
 openapitools.json

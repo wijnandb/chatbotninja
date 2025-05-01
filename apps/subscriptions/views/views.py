@@ -19,7 +19,7 @@ from ..helpers import get_subscription_urls, subscription_is_active, subscriptio
 from ..models import SubscriptionModelBase
 from ..wrappers import InvoiceFacade, SubscriptionWrapper
 
-log = logging.getLogger("chatbotninja.subscription")
+log = logging.getLogger("botminds.subscription")
 
 
 @redirect_subscription_errors

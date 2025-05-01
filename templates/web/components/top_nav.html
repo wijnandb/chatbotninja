@@ -1,4 +1,5 @@
 {% load i18n %}
+{% load wagtailcore_tags %}
 <div class="navbar shadow-md">
   <div class="navbar-start">
     <div class="dropdown">
@@ -14,6 +15,12 @@
             <div>{{project_meta.NAME}}</div>
           </a>
         </li>
+        {% slugurl 'blog' as blog_url %}
+        <li>
+          <a class="{% if blog_url in request.path %}active{% endif %}" href="{{ blog_url }}">
+            {% translate "Blog" %}
+          </a>
+        </li>
         {% endblock %}
       </ul>
     </div>
@@ -22,6 +29,10 @@
     <div role="tablist" class="tabs p-0">
       <a class="tab {% if request.path == '/' %}tab-active{% endif %}" href="{% url 'web:home' %}">
         <div>{{project_meta.NAME}}</div>
+      </a>
+      {% slugurl 'blog' as blog_url %}
+      <a class="tab {% if blog_url in request.path %}tab-active{% endif %}" href="{{ blog_url }}">
+        {% translate "Blog" %}
       </a>
     </div>
   </div>
@@ -35,6 +46,5 @@
       {% translate "Sign In" %}
     </a>
     {% endif %}
-    {% include "web/components/dark_mode_selector.html" %}
   </div>
 </div>

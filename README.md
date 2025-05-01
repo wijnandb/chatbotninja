@@ -1,6 +1,6 @@
-# Chatbotninja
+# Botminds
 
-Custom chatbots. Chat with your own data.
+This is the repo in which I will try to get Scriv working
 
 ## Installation
 
@@ -14,10 +14,10 @@ This will create your virtual environment in the `.venv` directory of your proje
 
 ## Set up database
 
-Create a database named `chatbotninja`.
+Create a database named `botminds`.
 
 ```
-createdb chatbotninja
+createdb botminds
 ```
 
 Create database migrations:
@@ -62,13 +62,13 @@ it is installed and running.
 You can run it using:
 
 ```bash
-celery -A chatbotninja worker -l INFO --pool=solo
+celery -A botminds worker -l INFO --pool=solo
 ```
 
 Or with celery beat (for scheduled tasks):
 
 ```bash
-celery -A chatbotninja worker -l INFO -B --pool=solo
+celery -A botminds worker -l INFO -B --pool=solo
 ```
 
 Note: Using the `solo` pool is recommended for development but not for production.

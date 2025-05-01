@@ -1,8 +1,8 @@
 /* tslint:disable */
 /* eslint-disable */
 /**
- * Chatbotninja
- * Custom chatbots. Chat with your own data.
+ * Botminds
+ * This is the repo in which I will try to get Scriv working
  *
  * The version of the OpenAPI document: 0.1.0
  * 
@@ -37,10 +37,6 @@ export class DashboardApi extends runtime.BaseAPI {
         if (this.configuration && (this.configuration.username !== undefined || this.configuration.password !== undefined)) {
             headerParameters["Authorization"] = "Basic " + btoa(this.configuration.username + ":" + this.configuration.password);
         }
-        if (this.configuration && this.configuration.apiKey) {
-            headerParameters["Authorization"] = await this.configuration.apiKey("Authorization"); // ApiKeyAuth authentication
-        }
-
         const response = await this.request({
             path: `/dashboard/api/user-signups/`,
             method: 'GET',
