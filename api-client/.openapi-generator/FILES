@@ -1,4 +1,5 @@
 .openapi-generator-ignore
+apis/CmsApi.ts
 apis/DashboardApi.ts
 apis/TeamsApi.ts
 apis/index.ts

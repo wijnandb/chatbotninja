@@ -8,7 +8,7 @@ from apps.teams.models import Team
 
 from .helpers import provision_subscription
 
-log = logging.getLogger("chatbotninja.subscription")
+log = logging.getLogger("botminds.subscription")
 
 
 @djstripe_receiver("checkout.session.completed")

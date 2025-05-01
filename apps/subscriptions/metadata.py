@@ -183,42 +183,39 @@ ACTIVE_PLAN_INTERVALS = [
 # with plans on your side
 ACTIVE_PRODUCTS = [
     ProductMetadata(
-        stripe_id="prod_SB5UDAj80XAHNR",
-        slug="premium-monthly-subscription",
-        name="Premium monthly subscription",
+        stripe_id="",
+        slug="starter",
+        name=_("Starter"),
+        description=_("For hobbyists and side-projects"),
         features=[
-            "Premium monthly subscription Feature 1",
-            "Premium monthly subscription Feature 2",
-            "Premium monthly subscription Feature 3",
+            _("Up to 100 Widgets"),
+            _("Unlimited Widget Editing"),
         ],
-        price_displays={},
-        description="The Premium monthly subscription plan",
-        is_default=False,
     ),
     ProductMetadata(
-        stripe_id="prod_ROMkbDhiqDlMSS",
-        slug="monthly-subscription",
-        name="Monthly subscription",
-        features=["Monthly subscription Feature 1", "Monthly subscription Feature 2", "Monthly subscription Feature 3"],
-        price_displays={},
-        description="The Monthly subscription plan",
-        is_default=False,
-    ),
-    ProductMetadata(
-        stripe_id="prod_ROMapTwF3cDVgF",
-        slug="translations-unlimited",
-        name="Translations unlimited",
-        features=[
-            "Translations unlimited Feature 1",
-            "Translations unlimited Feature 2",
-            "Translations unlimited Feature 3",
-        ],
-        price_displays={},
-        description="The Translations unlimited plan",
+        stripe_id="",
+        slug="standard",
+        name=_("Standard"),
+        description=_("For small businesses and teams"),
         is_default=True,
+        features=[
+            _("Up to 500 Widgets"),
+            _("Unlimited Widget Editing"),
+            _("Advanced Widget Editing Features"),
+        ],
+    ),
+    ProductMetadata(
+        stripe_id="",
+        slug="premium",
+        name=_("Premium"),
+        description=_("For small businesses and teams"),
+        features=[
+            _("Unlimited Widgets"),
+            _("All Features"),
+            _("Priority Support and Training"),
+        ],
     ),
 ]
-
 
 ACTIVE_PRODUCTS_BY_ID = {p.stripe_id: p for p in ACTIVE_PRODUCTS}
 
