@@ -1,8 +1,8 @@
 /* tslint:disable */
 /* eslint-disable */
 /**
- * Chatbotninja
- * Custom chatbots. Chat with your own data.
+ * Botminds
+ * This is the repo in which I will try to get Scriv working
  *
  * The version of the OpenAPI document: 0.1.0
  * 

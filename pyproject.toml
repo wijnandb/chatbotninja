@@ -9,7 +9,7 @@ extend-exclude = [
 ]
 line-length = 120
 indent-width = 4
-target-version = "py311"
+target-version = "py312"
 
 [tool.ruff.lint]
 fixable = [
@@ -28,22 +28,20 @@ line-ending = "auto"
 py-modules = []
 
 [project]
-name = "chatbotninja"
+name = "botminds"
 version = "0.1.0"
 description = "Add your description here"
 readme = "README.md"
 requires-python = ">=3.11"
 dependencies = [
-    "Django",
+    "Django>=5.2",
     "boto3",
     "celery",
     "celery-progress",
     "celery[redis]",
-    "channels",
-    "channels_redis",
     "dj-stripe>=2.9",
     "django-allauth[socialaccount,mfa]",
-    "django-anymail[mailgun]",  # email services
+    "django-anymail[mailgun]", # email services
     "django-celery-beat",
     "django-environ",
     "django-health-check",
@@ -53,26 +51,29 @@ dependencies = [
     "django-template-partials",
     "django-waffle",
     "djangorestframework",
-    "djangorestframework-api-key",
     "docutils",
     "drf-spectacular",
+    "markdown",
+    "nh3>=0.2.21",
+    "openai",
     "psycopg2-binary",
+    "python-dateutil",
     "redis",
     "requests",
-    "sentry-sdk",
+    "sentry-sdk[django]>=2.33.2",
     "stripe<12.0",
+    "wagtail",
     "whitenoise[brotli]",
 ]
 
 [dependency-groups]
 dev = [
-    "channels[daphne]",
     "django-debug-toolbar",
     "pre-commit",
     "ruff",
     "pegasus-cli>=0.8",
 ]
 prod = [
+    "gevent",
     "gunicorn",
-    "uvicorn[standard]",
 ]

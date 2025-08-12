@@ -15,3 +15,7 @@ The following commands can be used for various tools and workflows:
 - Lint Python: `ruff check --fix .`
 - Format Python: `ruff format .`
 - Update translations: `./manage.py makemessages --all && ./manage.py compilemessages`
+- Adding python dependencies: `uv add <library>`
+- You can run generic Python commands using `uv run <command>`
+- Start a new Django app: `uv run pegasus startapp <app_name> <Model1> <Model2Name>`
+  (the models are optional).
