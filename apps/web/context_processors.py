@@ -16,11 +16,6 @@ def project_meta(request):
         "page_title": "",
         "page_description": "",
         "page_image": "",
-        # put any settings you want made available to all templates here
-        # then reference them as {{ project_settings.MY_VALUE }} in templates
-        "project_settings": {
-            "ACCOUNT_SIGNUP_PASSWORD_ENTER_TWICE": settings.ACCOUNT_SIGNUP_PASSWORD_ENTER_TWICE,
-        },
         "turnstile_key": getattr(settings, "TURNSTILE_KEY", None),
         "use_i18n": getattr(settings, "USE_I18N", False) and len(getattr(settings, "LANGUAGES", [])) > 1,
     }

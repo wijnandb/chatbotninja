@@ -237,18 +237,17 @@ AUTH_PASSWORD_VALIDATORS = [
 
 ACCOUNT_ADAPTER = "apps.teams.adapter.AcceptInvitationAdapter"
 ACCOUNT_LOGIN_METHODS = {"email"}
-ACCOUNT_EMAIL_REQUIRED = True
+ACCOUNT_SIGNUP_FIELDS = ["email*", "password1*"]
+
 ACCOUNT_EMAIL_SUBJECT_PREFIX = ""
 ACCOUNT_EMAIL_UNKNOWN_ACCOUNTS = False  # don't send "forgot password" emails to unknown accounts
 ACCOUNT_CONFIRM_EMAIL_ON_GET = True
 ACCOUNT_UNIQUE_EMAIL = True
-ACCOUNT_USERNAME_REQUIRED = False
 # This configures a honeypot field to prevent bots from signing up.
 # The ID strikes a balance of "realistic" - to catch bots,
 # and "not too common" - to not trip auto-complete in browsers.
 # You can change the ID or remove it entirely to disable the honeypot.
 ACCOUNT_SIGNUP_FORM_HONEYPOT_FIELD = "phone_number_x"
-ACCOUNT_SIGNUP_PASSWORD_ENTER_TWICE = False
 ACCOUNT_SESSION_REMEMBER = True
 ACCOUNT_LOGOUT_ON_GET = True
 ACCOUNT_LOGIN_ON_EMAIL_CONFIRMATION = True
@@ -322,7 +321,7 @@ USE_S3_MEDIA = env.bool("USE_S3_MEDIA", default=False)
 if USE_S3_MEDIA:
     # Media file storage in S3
     # Using this will require configuration of the S3 bucket
-    # See https://docs.saaspegasus.com/configuration.html?#storing-media-files
+    # See https://docs.saaspegasus.com/configuration/#storing-media-files
     AWS_ACCESS_KEY_ID = env("AWS_ACCESS_KEY_ID", default="")
     AWS_SECRET_ACCESS_KEY = env("AWS_SECRET_ACCESS_KEY")
     AWS_STORAGE_BUCKET_NAME = env("AWS_STORAGE_BUCKET_NAME", default="botminds-media")
@@ -426,6 +425,16 @@ CACHES = {
 
 CELERY_BROKER_URL = CELERY_RESULT_BACKEND = REDIS_URL
 CELERY_BEAT_SCHEDULER = "django_celery_beat.schedulers:DatabaseScheduler"
+
+# Add tasks to this dict and run `python manage.py bootstrap_celery_tasks` to create them
+SCHEDULED_TASKS = {
+    # Example of a crontab schedule
+    # from celery import schedules
+    # "daily-4am-task": {
+    #     "task": "some.task.path",
+    #     "schedule": schedules.crontab(minute=0, hour=4),
+    # },
+}
 
 # Health Checks
 # A list of tokens that can be used to access the health check endpoint

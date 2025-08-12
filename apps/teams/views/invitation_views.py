@@ -1,5 +1,6 @@
 from allauth.account.models import EmailAddress
 from allauth.account.views import SignupView
+from django.conf import settings
 from django.contrib import messages
 from django.http import Http404, HttpResponseRedirect
 from django.shortcuts import get_object_or_404, render
@@ -89,3 +90,16 @@ class SignupAfterInvite(SignupView):
         if self.invitation:
             context["invitation"] = self.invitation
         return context
+
+    def form_valid(self, form):
+        response = super().form_valid(form)
+
+        # Mark the email as verified since it was used in the invitation
+        if settings.ACCOUNT_EMAIL_VERIFICATION != "none" and hasattr(self, "user") and self.invitation:
+            from allauth.account.models import EmailAddress
+
+            email_address = EmailAddress.objects.filter(user=self.user, email=self.invitation.email).first()
+            if email_address:
+                email_address.set_verified(commit=True)
+
+        return response

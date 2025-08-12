@@ -12,6 +12,8 @@ botminds/localsettings.py
 botminds/local.py
 static_root/
 node_modules/
+# ai assistants
+.claude/settings.local.json
 openapitools.json
 media/
 docs/_build
@@ -21,7 +23,6 @@ _dist/
 .DS_Store
 .direnv
 .envrc
-
 # uncomment these lines after setting up the front-end build pipeline in dev and production
 # static/css/
 # static/js/

@@ -19,8 +19,8 @@
           {{ form.non_field_errors }}
           {% render_field form.email %}
           {% render_field form.password1 %}
-          {% if project_settings.ACCOUNT_SIGNUP_PASSWORD_ENTER_TWICE %}
-          {% render_field form.password2 %}
+          {% if form.password2 %}
+            {% render_field form.password2 %}
           {% endif %}
           {% render_field form.phone_number_x %}
           {% if invitation %}

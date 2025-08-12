@@ -13,7 +13,7 @@
       {{ progress.result.content|render_markdown }}
     {% elif progress.complete %}
       <p class="pg-text-danger">
-      {% blocktranslate %}
+      {% blocktranslate trimmed %}
         Sorry something went wrong. This may be an OpenAI error, or your API key may not be set properly.
         If you are a site administrator seeing this for the first time, double check your <code>OPENAI_API_KEY</code>
         setting / environment variable and restart all running processes.

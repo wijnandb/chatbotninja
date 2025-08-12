@@ -6,8 +6,9 @@ cli:
   template_directory: templates
   use_teams: true
 default_context:
-  _pegasus_version: 2025.4.3
+  _pegasus_version: '2025.8'
   author_name: Wijnand
+  bundler: webpack
   ci: github_actions
   css_framework: tailwind
   css_theme: default
@@ -39,6 +40,7 @@ default_context:
   use_admin_docs: y
   use_ai_rules_claude: y
   use_ai_rules_cursor: y
+  use_ai_rules_junie: n
   use_api_auth: n
   use_api_keys: n
   use_async: n
